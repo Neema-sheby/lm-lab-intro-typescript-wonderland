@@ -21,9 +21,10 @@ export function meetTheCheshireCat(): void {
 
 	const theCat = new CheshireCat();
 
-	// 👉 FIXME ❌
-	// 		Add some code here which allows you to progress *without* altering any other code in this file
-	// 👉 END FIXME ❌
+	// 👉 FIXED ✅
+	theCat.expression = expressions[2];
+
+	// 👉 END of FIX ✅
 
 	print(
 		`You can see ${theCat.name}. A wide ${theCat.expression} is hovering in the air.`
