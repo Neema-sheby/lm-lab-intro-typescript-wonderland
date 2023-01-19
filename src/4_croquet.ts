@@ -20,12 +20,8 @@ type Ball = Hedgehog | CricketBall | CroquetBall | Football;
 // 💡 Hover `Ball` and `Mallet` in VS Code and see what TypeScript says about them
 type Mallet = Flamingo | Hammer | CroquetMallet;
 
-// 👉 FIXED ✅ We're defining a TBall and a TMallet, but not specifying anything about them...
-
-let Tball:Ball;
-let TMallet:Mallet;
-
-interface Croquet<TBall, TMallet> {
+// 👉 FIXED✅ We're defining a TBall and a TMallet, but not specifying anything about them...
+interface Croquet<TBall extends Ball, TMallet extends Mallet> {
 	hit: (ball: TBall, mallet: TMallet) => boolean;
 }
 
@@ -33,8 +29,8 @@ export function playCroquet(): void {
 	clear(true);
 	print('The Queen of Hearts 👑❤ invites you to play croquet 🏑');
 
-	// 👉 FIXED ✅ Our ball and mallet are made of numbers.
-	const game: Croquet<string, string> = {
+	// 👉 FIXED✅ Our ball and mallet are made of numbers.
+	const game: Croquet<Ball, Mallet> = {
 		hit: (ball, mallet) => {
 			let score = 0;
 
@@ -57,7 +53,7 @@ export function playCroquet(): void {
 	};
 
 	// 👉 FIXED✅ These parameters to hit() aren't right!
-	if (game && game.hit && game.hit('Hedgehog', 'Flamingo')) {
+	if (game && game.hit && game.hit( 'Hedgehog','Flamingo')) {
 		print('🏆 Success! You scored! 🏆');
 		print('Time to chat with the queen...');
 		return askQuestion('Press ENTER to continue! ', meetTheQueen);

@@ -22,7 +22,7 @@ export function meetTheCheshireCat(): void {
 	const theCat = new CheshireCat();
 
 	// 👉 FIXED ✅
-	theCat.expression = expressions[2];
+	theCat.expression = '😁 Grin 😁';
 
 	// 👉 END of FIXED ✅
 
